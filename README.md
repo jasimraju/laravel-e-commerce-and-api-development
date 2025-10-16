@@ -34,7 +34,7 @@ The system is designed for scalability, enabling both web and mobile platforms t
 
 | Component | Technology |
 |------------|-------------|
-| **Framework** | Laravel 7 (PHP 7.4+) |
+| **Framework** | Laravel 8.5 (PHP 7.4+) |
 | **Frontend** | Blade Template Engine, Bootstrap 5 |
 | **Database** | MySQL |
 | **API Authentication** | Laravel Sanctum / Passport |
