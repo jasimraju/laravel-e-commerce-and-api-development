@@ -5,6 +5,13 @@ The system is designed for scalability, enabling both web and mobile platforms t
 
 ---
 
+## 🧑‍💼 Author
+**MD Jasim Uddin**  
+CTO & Full Stack Developer  
+📧 [raju311286@gmail.com](mailto:raju311286@gmail.com)  
+🔗 [LinkedIn](https://linkedin.com/in/jasim-uddin-440a03112)  
+🔗 [GitHub](https://github.com/jasimraju)
+
 ## 🚀 Features
 
 ### 🏪 Core E-Commerce
