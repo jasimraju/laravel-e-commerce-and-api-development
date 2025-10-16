@@ -1,0 +1,1074 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper" >
+       <div style="background-color:#fff !important;"> <img src="images/logo-1.webp" style="max-width: 95%; height: auto; padding:5px;"/></div>
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='https://www.orfeostory.com'>Documentation Powered by orfeostory</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>This reference is prepared for APIs required by <a href="https://orfeostorysite.com/smat_mobile/">Smart Operation Platform.</a></p>
+<p><b>Base URL:</b> https://orfeostorysite.com/smat_mobile/api</p>
+<p><b>Version:</b> 1.0</p>
+<p><b>Example API:</b> https://orfeostorysite.com/smat_mobile/api/{endpoint}</p>
+<p>The authentication process can be conducted in three methods such as,
+GET, POST, and Header<br>
+You must choose any of the above based on the requirements. Example for each of these methods are also provided.<br>
+GET:<br>
+url:https://orfeostorysite.com/smat_mobile/api/{endpoint}/?token={your token}<br>
+
+POST:<br>
+body{<br>
+  "token":{your token}<br>
+}<br>
+Header:<br>
+header{<br>
+Authorization: Bearer [your token]<br>
+}</p>
+<!-- END_INFO -->
+<h1>Smart Operation Platform APIs</h1>
+
+
+<!-- start api -->
+<!-- title -->
+<h2>Customer Login</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>:
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json"
+}</code></pre>
+<!-- end header -->
+<!-- start header -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"email":email  | (required),
+"password":string | (required),
+"deviceId":string | (required),
+"imei":string | (required),
+"pushRegId":string,
+"platformId":int,
+}</code></pre>
+<!-- end header -->
+<!-- start Response -->
+<blockquote>
+<p>Example Response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+"success": true,
+"token": "Access token to be provided"
+}</code></pre>
+<blockquote>
+<p>Example Response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+"success": false,
+"message": "Invalid Login Credentials!"
+}</code></pre>
+<pre><code class="language-json">{
+"error": {
+        "email": [
+            "Please type Valid Email Address"
+        ]
+    }
+}
+</code></pre>
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>POST login</code></p>
+<h3>Definition</h3>
+<p>This API enables users to log of the application.</p>
+<p>A <b>JWT</b> is generated through this API, which is valid for 24 hours after generation.</p>
+<h3>Authentication Requirement</h3>
+<p>No authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+
+
+<!-- END_c3fa189a6c95ca36ad6ac4791a873d23 -->
+<!-- START_d7b7952e7fdddc07c978c9bdaf757acf -->
+<!-- start api -->
+<!-- title -->
+<h2>Customer Registration</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>:
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json"
+}</code></pre>
+<!-- end header -->
+<!-- start header -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"first_name":string |(required),
+"last_name":string |(required), 
+"email":email | unique user | (required),
+"password":string | (required),
+"deviceId":string | (required),
+"imei":string | (required),
+"pushRegId":string,
+"platformId":string,
+}</code></pre>
+<!-- end header -->
+<!-- start Response -->
+<blockquote>
+<p>Example Response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+"success": true,
+"token": "Access token to be provided"
+}</code></pre>
+<blockquote>
+<p>Example Response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+"success": false,
+"message": "Invalid Login Credentials!"
+}</code></pre>
+<pre><code class="language-json">{
+"error": {
+        "email": [
+            "The email has already been taken."
+        ],
+        "deviceId": [
+            "The device id field is required."
+        ],
+        "imei": [
+            "The imei field is required."
+        ]
+    }
+}
+</code></pre>
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>POST register</code></p>
+<h3>Definition</h3>
+<p>This API enables users to log into the application.</p>
+<p>A <b>JWT</b> is generated through this API, which is valid for 24 hours after generation.</p>
+<h3>Authentication Requirement</h3>
+<p>No authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+<!-- END_d7b7952e7fdddc07c978c9bdaf757acf -->
+<!-- START_00e7e21641f05de650dbe13f242c6f2c -->
+<!-- start api -->
+<!-- title -->
+<h2>Customer Log out</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>:
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json",
+"Authorization": "Bearer [access_token]"
+}</code></pre>
+<!-- end header -->
+<!-- start body -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"token":{your token}(optional)
+}</code></pre>
+<!-- end body -->
+<!-- start Response -->
+<blockquote>
+<p>Example Response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+ "success" : true,
+ "message" : "User has been logged out"
+}</code></pre>
+<blockquote>
+<p>Example Response (400):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+"success" : false,
+"message" : "Sorry, user cannot be logged out"
+}</code></pre>
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>GET logout</code></p>
+<h3>Definition</h3>
+<p>This API enables users to logout into the application.</p>
+
+<h3>Authentication Requirement</h3>
+<p>Authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+<!-- start api -->
+<!-- title -->
+<h2>Get Customer details</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>:
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json",
+"Authorization": "Bearer [access_token]"
+}</code></pre>
+<!-- end header -->
+<!-- start body -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"token":{your token}(optional)
+}</code></pre>
+<!-- end body -->
+<!-- start Response -->
+<blockquote>
+<p>Example Response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+   "success": true,
+    "success": true,
+    "user": {
+        "id": 1,
+        "first_name": "test",
+        "last_name": "test",
+        "country_id": 2,
+        "phone": "312",
+        "dateofbrith": "01/12/1986"
+    }
+}</code></pre>
+<blockquote>
+<p>Example Response (unauthenticated)(200):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "status": "Token is Expired"
+}
+</code></pre>
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>GET get_user</code></p>
+<h3>Definition</h3>
+<p>This API provides user details.</p>
+
+<h3>Authentication Requirement</h3>
+<p>Authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+<!-- ----------------------- -->
+
+<!-- start api -->
+<!-- title -->
+<h2>Get List of Product Categories</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>:
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json",
+"Authorization": "Bearer [access_token]"
+}</code></pre>
+<!-- end header -->
+<!-- start body -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"token":{your token}(optional)
+}</code></pre>
+<!-- end body -->
+<!-- start Response -->
+<blockquote>
+<p>Example Response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+   "success": true,
+    "categories": [
+        {
+            "id": 20,
+            "name": "Mee",
+            "description": "testing mee",
+            "more_details": "testing details",
+            "background_color": "#6fa8dc",
+            "image_url": "http://localhost/smat_mobile/public/storage/image/1642413810157.png",
+            "parent_id": null
+        },
+        {
+            "id": 21,
+            "name": "Fruits",
+            "description": "testing fruits",
+            "more_details": "testing fruits",
+            "background_color": "#93c47d",
+            "image_url": "http://localhost/smat_mobile/public/storage/image/1642413897386.png",
+            "parent_id": null
+        }
+    ]
+}</code></pre>
+<blockquote>
+<p>Example Response (unauthenticated)(200):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "status": "Token is Expired"
+}
+</code></pre>
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>GET get_category</code></p>
+<h3>Definition</h3>
+<p>This API provides the list of product categories.</p>
+
+<h3>Authentication Requirement</h3>
+<p>Authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+<!-- ----------------------- -->
+<!-- start api -->
+<!-- title -->
+<h2>Get Products by Category</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>:
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json",
+"Authorization": "Bearer [access_token]"
+}</code></pre>
+<!-- end header -->
+<!-- start body -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"token":{your token}(optional)
+"category_id":{catgory id}(required)
+}</code></pre>
+<!-- end body -->
+<!-- start Response -->
+<blockquote>
+<p>Example Response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+   "success": true,
+  "products": [
+        {
+            "brand_name": "FruitSense",
+            "brand_id": 5,
+            "name": "Australian Blood Orange ",
+            "price": 5.5,
+            "currency_sign": "S$",
+            "product_id": 26,
+            "supplier_name": "Sangla Foods Sdn. Bhd.",
+            "supplier_id": 8,
+            "unit_name": "kg",
+            "unit_quantity": "1",
+            "varient_id": 3,
+            "discount_parcentage": 0,
+            "discount": 0,
+            "image_url": "http://orfeostorysite.com/smat_mobile/public/storage/image/1_1642661702006.jpg"
+        },
+        {
+            "brand_name": "FruitSense",
+            "brand_id": 5,
+            "name": "Rambutan ",
+            "price": 10.3,
+            "currency_sign": "S$",
+            "product_id": 36,
+            "supplier_name": "Tip Top Fruits & Groceries",
+            "supplier_id": 9,
+            "unit_name": "kg",
+            "unit_quantity": "1",
+            "varient_id": 6,
+            "discount_parcentage": 0,
+            "discount": 0,
+            "image_url": "http://orfeostorysite.com/smat_mobile/public/storage/image/1_1644551091217.jpg"
+        }
+    ]
+}</code></pre><pre><code class="language-json">{
+    "success": true,
+    "products": []
+}</code></pre>
+
+<blockquote>
+<p>Example Response (unauthenticated)(200):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "status": "Token is Expired"
+}
+</code></pre>
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>POST get_product</code></p>
+<h3>Definition</h3>
+
+<p>This API provides list of all products by one single category.</p>
+
+<h3>Authentication Requirement</h3>
+<p>Authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+<!-- ----------------------- -->
+
+<!-- start api -->
+<!-- title -->
+<h2>Post Favorite Products and Categories</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json",
+"Authorization": "Bearer [access_token]"
+}</code></pre>
+<!-- end header -->
+<!-- start body -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"token":{your token}(optional),
+ "user_id" : "required",
+ "object_id" : "required"(int|array),
+ "type" : "required",
+}</code></pre>
+<!-- end body -->
+<!-- start Response -->
+<blockquote>
+<p>Example Response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+     "success" : true,
+     "message" : "object fav successfully"
+}</code></pre>
+
+<blockquote>
+<p>Example Response (unauthenticated)(200):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "status": "Token is Expired"
+}
+</code></pre>
+<blockquote>
+<p>Example Response (400):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "succes" : false,
+ "messag" : "user not exit in this system"
+
+}</code></pre>
+<pre><code class="language-json">{
+ "success" : false,
+ "message" : "You allready fav it"
+
+}</code></pre>
+<pre><code class="language-json">{
+ "success" : false,
+ "message" : "Object id not exit"
+
+}</code></pre>
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>POST post_favorite</code></p>
+<h3>Definition</h3>
+<p>This API enables users to add products and categories to their list of favorites.</p>
+<p>Product ID to be submitted upon user's clicking on a product</p>
+<p>Category ID to be submitted upon user's clicking on a Category.</p>
+<p>For Product used Type: 1.</p>
+<p>For Category  used Type: 2.</p>
+<p>A single Object ID or multiple IDs can be sent (in an <b>Array</b> or <b>int</b> on post body) .</p>
+
+
+<h3>Authentication Requirement</h3>
+<p>Authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+<!-- ----------------------- -->
+<!-- start api -->
+<!-- title -->
+<h2>Get Favorite Products and List of Categories</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>
+
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json",
+"Authorization": "Bearer [access_token]"
+}</code></pre>
+<!-- end header -->
+<!-- start body -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"token":{your token}(optional),
+
+}</code></pre>
+<!-- end body -->
+<!-- start Response -->
+<blockquote>
+<p>Example Response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "fav_products": [
+        {
+            "brand_name": "SnacksDaily",
+            "brand_id": 7,
+            "name": "Veggie Sausage Rolls by SnacksDaily ",
+            "price": 10.5,
+            "currency_sign": "S$",
+            "product_id": 4,
+            "supplier_name": "K Goh Trading Pte Ltd",
+            "supplier_id": 2,
+            "unit_name": "Gm",
+            "unit_quantity": "30",
+            "varient_id": 4,
+            "discount_parcentage": 1,
+            "discount": 0,
+            "image_url": "http://localhost/smat_mobile/public/storage/image/1_1642661841424.jpg"
+        }
+    ]
+}</code></pre>
+
+<pre><code class="language-json">{
+    "success": true,
+    "fav_category": [
+        {
+            "id": 20,
+            "name": "Mee",
+            "description": "testing mee",
+            "more_details": "testing details",
+            "background_color": "#6fa8dc",
+            "image_url": "http://localhost/smat_mobile/public/storage/image/1642413810157.png",
+            "parent_id": null
+        },
+        {
+            "id": 21,
+            "name": "Fruits",
+            "description": "testing fruits",
+            "more_details": "testing fruits",
+            "background_color": "#93c47d",
+            "image_url": "http://localhost/smat_mobile/public/storage/image/1642413897386.png",
+            "parent_id": null
+        }
+    ]
+}</code></pre>
+
+<blockquote>
+<p>Example Response (unauthenticated)(200):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "status": "Token is Expired"
+}
+</code></pre>
+<blockquote>
+<p>Example Response (400):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "success" : false,
+ "fav_items" : "you have no fav_items"
+
+}</code></pre>
+
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>GET GET wishlist/{user_id}/{type}</code></p>
+<h3>Definition</h3>
+<p>This API helps get the list of favorited Product and Categories as an Array list.</p>
+<p>Type: 1 (for Products).</p>
+<p>Type: 2 (for Categories)</p>
+
+<h3>Authentication Requirement</h3>
+<p>Authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+<!-- ----------------------- -->
+<!-- start api -->
+<!-- title -->
+<h2>Get List of Favorited Products and Categories</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>
+
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json",
+"Authorization": "Bearer [access_token]"
+}</code></pre>
+<!-- end header -->
+<!-- start body -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"token":{your token}(optional),
+
+}</code></pre>
+<!-- end body -->
+<!-- start Response -->
+<blockquote>
+<p>Example Response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "fav_list_id": [
+        20
+    ]
+}</code></pre>
+<blockquote>
+<p>Example Response empty list(200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "fav_list_id": [
+    ]
+}</code></pre>
+
+
+<blockquote>
+<p>Example Response (unauthenticated)(200):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "status": "Token is Expired"
+}
+</code></pre>
+<blockquote>
+<p>Example Response (400):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "success" : false,
+ "fav_items" : "you have no fav_items"
+
+}</code></pre>
+
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>GET wishlist/{user_id}/{type}/{anynumer?}</code></p>
+<h3>Definition</h3>
+<p>This API helps get the list of favorited Product and Categories as an Array list..</p>
+<p>Type: 1 (for Products).</p>
+<p>Type: 2 (for Categories)</p>
+<h3>Authentication Requirement</h3>
+<p>Authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+<!-- start api -->
+<!-- title -->
+<h2>Get your address</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>
+
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json",
+"Accept": "application/json",
+"Authorization": "Bearer [access_token]"
+}</code></pre>
+<!-- end header -->
+<!-- start body -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"token":{your token}(optional)
+}</code></pre>
+<!-- end body -->
+<!-- start resopnse -->
+<blockquote>
+<p>Example Resopnse (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "address": [
+        {
+            "id": 15,
+            "address": "92 Kaki Bukit Industrial Terrace",
+            "unit": "20",
+            "post_code": "41617",
+            "town_city": "Singapore",
+            "floor_apartment": "02",
+            "country_name": "Singapore"
+        }
+    ]
+}</code></pre>
+
+
+
+<blockquote>
+<p>Example Resopnse (unauthenticated)(200):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "status": "Token is Expired"
+}
+</code></pre>
+
+
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>GET address/{user_id}</code></p>
+<h3>Definition</h3>
+<p>This API enables users to fave it into the application.</p>
+
+<h3>Authentication Requirement</h3>
+<p>Authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+<!-- ----------------------- -->
+<!-- start api -->
+<!-- title -->
+<h2>Get country</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>
+
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json",
+"Accept": "application/json",
+"Authorization": "Bearer [access_token]"
+}</code></pre>
+<!-- end header -->
+<!-- start body -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"token":{your token}(optional)
+}</code></pre>
+<!-- end body -->
+<!-- start resopnse -->
+<blockquote>
+<p>Example Resopnse (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "success": true,
+    "countrise": [
+        {
+            "id": 1,
+            "name": "Norway"
+        },
+        {
+            "id": 2,
+            "name": "Myanmar"
+        },
+        {
+            "id": 3,
+            "name": "Sweden"
+        },
+        {
+            "id": 4,
+            "name": "Bangladesh"
+        },
+        {
+            "id": 6,
+            "name": "Singapore"
+        },
+        {
+            "id": 7,
+            "name": "Malaysia"
+        },
+        {
+            "id": 8,
+            "name": "Indonesia"
+        }
+    ]
+}</code></pre>
+
+
+
+<blockquote>
+<p>Example Resopnse (unauthenticated)(200):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "status": "Token is Expired"
+}
+</code></pre>
+
+
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>GET get_country</code></p>
+<h3>Definition</h3>
+<p>This API enables users to fave it into the application.</p>
+
+<h3>Authentication Requirement</h3>
+<p>Authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+<!-- ----------------------- -->
+<!-- start api -->
+<!-- title -->
+<h2>Address create</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>
+<pre>Note: you get country id form get_country api.</pre>
+
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json",
+"Accept": "application/json",
+"Authorization": "Bearer [access_token]"
+}</code></pre>
+<!-- end header -->
+<!-- start body -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"token":{your token}(optional),
+    "user_id": "user_id | required",
+    "address": "string | required",
+    "post_code": "string | required",
+    "unit": "string | required",
+    "town_city": "string | (required",
+    "apartment_floor": "strin" ,
+    "country_id": "country_id | required"
+}</code></pre>
+<!-- end body -->
+<!-- start resopnse -->
+<blockquote>
+<p>Example Resopnse (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    {
+    "success": true,
+    "message": "Address save successfully"
+    }
+}</code></pre>
+
+
+
+<blockquote>
+<p>Example Resopnse (unauthenticated)(200):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "status": "Token is Expired"
+}
+</code></pre>
+
+
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>POST addresscreate</code></p>
+<h3>Definition</h3>
+<p>This API enables for post address.</p>
+
+<h3>Authentication Requirement</h3>
+<p>Authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+<!-- ----------------------- -->
+<!-- start api -->
+<!-- title -->
+<h2>Address edit</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>
+
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json",
+"Accept": "application/json",
+"Authorization": "Bearer [access_token]"
+}</code></pre>
+<!-- end header -->
+<!-- start body -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"token":{your token}(optional),
+  "user_id": "user_id | required",
+    "address": "string | required",
+    "post_code": "string | required",
+    "unit": "string | required",
+    "town_city": "string | (required",
+    "apartment_floor": "string" ,
+    "country_id": "country_id | required"
+}</code></pre>
+<!-- end body -->
+<!-- start resopnse -->
+<blockquote>
+<p>Example Resopnse (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    {
+    "success": true,
+    "message": "Address save successfully"
+    }
+}</code></pre>
+
+
+
+<blockquote>
+<p>Example Resopnse (unauthenticated)(200):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "status": "Token is Expired"
+}
+</code></pre>
+
+
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>POST addresscreate/{id?}</code></p>
+<pre>Note: you get  id form address api.</pre>
+<h3>Definition</h3>
+<p>This API enables for post address.</p>
+
+<h3>Authentication Requirement</h3>
+<p>Authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+<!-- ----------------------- -->
+
+      </div>
+      
+    </div>
+  </body>
+</html>

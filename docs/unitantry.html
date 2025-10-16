@@ -1,0 +1,70 @@
+<!-- start api -->
+<!-- title -->
+<h2>Get country</h2>
+<!-- end title -->
+<blockquote>
+  <!-- start example -->
+<p>Example Request:</p>
+</blockquote>
+<pre>Note: This is just example data.</pre>
+
+<!-- start header -->
+<blockquote>
+<p>Headers:</p>
+</blockquote>
+<pre><code class="language-json">{
+"Content-type": "application/json",
+"Accept": "application/json",
+"Accept": "application/json",
+"Authorization": "Bearer [access_token]"
+}</code></pre>
+<!-- end header -->
+<!-- start body -->
+<blockquote>
+<p>Body:</p></blockquote>
+<pre><code class="language-json">{
+"token":{your token}(optional),
+    "user_id": "1",
+    "address": "test",
+    "post_code": "045647",
+    "unit": "04",
+    "town_city": "singpure",
+    "apartment_floor": "05",
+    "country_id": "6"
+}</code></pre>
+<!-- end body -->
+<!-- start resopnse -->
+<blockquote>
+<p>Example Resopnse (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    {
+    "success": true,
+    "message": "Address save successfully"
+    }
+}</code></pre>
+
+
+
+<blockquote>
+<p>Example Resopnse (unauthenticated)(200):</p>
+</blockquote>
+
+<pre><code class="language-json">{
+ "status": "Token is Expired"
+}
+</code></pre>
+
+
+<!-- end response -->
+<!-- start middle -->
+<h3>HTTP Request</h3>
+<p><code>POST addresscreate</code></p>
+<h3>Definition</h3>
+<p>This API enables for post address.</p>
+
+<h3>Authentication Requirement</h3>
+<p>Authentication is required for this API.</p>
+<!-- end middle -->
+<!-- end api html -->
+<!-- ----------------------- -->

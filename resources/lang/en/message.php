@@ -1,0 +1,25 @@
+<?php
+
+return array (
+  'add_successfully' => 'Added Successfully',
+  'customer_create_successfully' => 'You account was created successfully.',
+  'delect_successfully' => 'Deleted Successfully',
+  'email_address_does_not_exit' => 'Email address does not exit',
+  'email_address_required' => 'Email address is required.',
+  'email_address_validtion' => 'Email pattan not correct.',
+  'login_successfully' => 'Login Successfully',
+  'no_items_on_your_shoping_card' => 'No items on your shoping_card',
+  'order_not_deleteable' => 'Order not delete able',
+  'order_taken_successfully' => 'Order Placed Successfully',
+  'password' => 'The password is incorrect.',
+  'please_check_you_email' => 'Please check your email',
+  'please_select_a' => 'Please select a',
+  'please_type_valid_password' => 'Please type valid password',
+  'please_write_a' => 'Please write a',
+  'product_added_to_cart_successfully' => 'Product added to cart successfully',
+  'some_thing_wrong' => 'Some thing Wrong',
+  'success' => 'Success',
+  'throttle' => 'Too many login attempts! Please try again in :seconds seconds.',
+  'update_successfully' => 'Updated Successfully',
+  'wish_added_successfully' => 'Product added to wishlist successfully',
+);
